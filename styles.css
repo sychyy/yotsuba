@@ -1,3 +1,4 @@
+/* Reset default styling */
 * {
     margin: 0;
     padding: 0;
@@ -5,50 +6,122 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* Body styling */
 body {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('https://files.catbox.moe/btaoxx.jpg') center/cover fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://files.catbox.moe/btaoxx.jpg') center/cover fixed;
     color: #fff;
     min-height: 100vh;
     padding: 20px;
     position: relative;
     text-align: center;
+    animation: fadeIn 1.5s ease-in;
 }
 
-body::after {
-    content: '';
-    position: absolute;
+/* Animasi fade-in untuk body */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animasi loading screen */
+.loading-screen {
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 1s forwards 3s;
 }
 
+/* Animasi menghilangkan loading screen */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Animasi loading spinner */
+.loading-screen .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid cyan;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+}
+
+/* Animasi spinner berputar */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animasi untuk header */
 .header-section {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
     justify-content: center;
     flex-direction: column;
+    animation: bounceInDown 1s ease-out;
 }
 
+/* Animasi masuk ke bawah untuk header */
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling gambar profil */
 .profile-img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 3px solid #7DD420;
+    border: 3px solid #ffffff;
     margin-bottom: 15px;
-    box-shadow: 0 0 20px rgba(255,105,180,0.3);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    transition: transform 0.3s ease;
 }
 
+/* Efek hover pada gambar profil */
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* Styling teks header */
 .header-text {
-    color: #7DD420;
+    color: #ffffff;
     font-size: 2.2em;
-    text-shadow: 0 0 10px rgba(255,105,180,0.3);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
 }
 
+/* Styling untuk teks jepang */
 .japanese-text {
     color: #888;
     font-style: italic;
@@ -57,11 +130,13 @@ body::after {
     text-align: center;
 }
 
+/* Styling untuk container */
 .container {
     max-width: 400px;
     margin: 20px auto;
 }
 
+/* Styling untuk tags */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -78,62 +153,230 @@ body::after {
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.3s ease;
 }
 
+/* Efek hover pada tag */
+.tag:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Styling untuk tombol sosial media */
 .social {
     display: flex;
     justify-content: center;
     gap: 15px;
     font-size: 20px;
     margin: 20px 0;
+    transition: transform 0.3s ease;
 }
 
+/* Styling link sosial media */
 .social a {
     color: white;
     text-decoration: none;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s;
 }
 
-.badge {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
+/* Efek hover pada sosial media */
+.social a:hover {
+    transform: scale(1.2);
+    color: #00FF7F;
 }
 
-.category-item {
-    color: #45AD00;
-    font-weight: bold;
-}
-
+/* Styling tombol download */
 .download-btn {
     display: flex;
     align-items: center;
-    background: #2e2e2e;
+    background: rgba(46, 46, 46, 0.8);
     color: #fff;
     padding: 15px;
     margin: 12px 0;
     border-radius: 8px;
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Efek hover pada tombol download */
 .download-btn:hover {
-    transform: translateX(10px);
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, rgba(34, 193, 195, 0.6), rgba(253, 187, 45, 0.6));
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 255, 127, 0.2);
 }
 
+/* Styling ikon pada tombol download */
 .download-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
 }
+
+/* Efek hover pada ikon tombol download */
+.download-btn:hover .download-icon {
+    transform: rotate(360deg);
+}
+
+/* Styling footer */
 .website-footer {
-    color: #888;
-    font-size: 0.9em;
+    margin-top: 30px;
+    font-size: 1.1em;
+    color: #fff;
+    opacity: 0.8;
     text-align: center;
-    margin: 40px 0 20px;
-    padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    font-style: italic;
+    transition: opacity 0.3s ease;
+}
+
+/* Efek hover pada footer */
+.website-footer:hover {
+    opacity: 1;
+}
+
+/* Styling untuk scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: #ffffff;
+    animation: bounce 1.5s infinite;
+}
+
+/* Animasi bounce untuk scroll indicator */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Styling untuk about section */
+.about-section {
+    margin-top: 60px;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.7); /* Lebih pudar */
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 0 30px rgba(0, 255, 127, 0.4);
+    position: relative;
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+/* Styling untuk konten dalam about */
+.about-container {
+    text-align: center;
+}
+
+/* Styling untuk title about */
+.about-title {
+    font-size: 2.5em;
+    color: #00FFFF; /* Warna cyan lebih samar */
+    margin: 20px 0;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Teks cyan lebih samar */
+}
+
+/* Animasi mengetik maju mundur dengan efek smooth */
+.moving-text {
+    font-size: 1.5em; /* Perkecil ukuran font */
+    color: cyan;
+    animation: typing 8s steps(30) 1s infinite, reverseTyping 9s steps(30) 1s infinite, blink 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid cyan;
+    margin-top: 10px; /* Jarak atas agar tidak terlalu dekat */
+    display: inline-block;
+    width: 100%; /* Pastikan lebar penuh */
+    max-width: 100%; /* Menjamin bahwa teks bisa menyesuaikan dengan ukuran layar */
+    transform: translateY(-10px); /* Geser teks sedikit ke atas */
+}
+
+/* Animasi mengetik maju */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Animasi mengetik mundur (reverse) */
+@keyframes reverseTyping {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 100%;
+    }
+    50% {
+        width: 100%;
+    }
+    75% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+/* Animasi berkedip pada border */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Styling untuk deskripsi tentang diri */
+.about-description p {
+    font-size: 14px; /* Ukuran font yang lebih kecil */
+    line-height: 1.8; /* Jarak antar baris lebih besar */
+    max-width: 800px;
+    margin: 0 auto; /* Pusatkan teks */
+    padding-top: 20px;
+}
+
+.about-japanese {
+    font-size: 14px; /* Ukuran font untuk teks Jepang */
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 20px auto; /* Memberikan jarak antara bahasa Inggris dan Jepang */
+    padding-top: 20px;
+    font-style: italic; /* Memberikan gaya miring untuk teks Jepang */
+}
+
+/* Animasi fadeIn untuk deskripsi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styling untuk text dalam bahasa Jepang Latin */
+.about-japanese-latin {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 20px;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+/* Efek hover pada text bahasa Jepang Latin */
+.about-japanese-latin:hover {
+    opacity: 1;
 }
