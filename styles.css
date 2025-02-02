@@ -55,7 +55,7 @@ body {
 /* Animasi loading spinner */
 .loading-screen .spinner {
     border: 4px solid rgba(255, 255, 255, 0.1);
-    border-top: 4px solid cyan;
+    border-top: 4px solid #3cb371; /* Warna hijau */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -183,7 +183,7 @@ body {
 /* Efek hover pada sosial media */
 .social a:hover {
     transform: scale(1.2);
-    color: #00FF7F;
+    color: #3cb371; /* Hijau lebih tua */
 }
 
 /* Styling tombol download */
@@ -281,19 +281,19 @@ body {
 /* Styling untuk title about */
 .about-title {
     font-size: 2.5em;
-    color: #00FFFF; /* Warna cyan lebih samar */
+    color: #3cb371; /* Hijau muda tapi agak tua */
     margin: 20px 0;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Teks cyan lebih samar */
+    text-shadow: 0 0 15px rgba(60, 179, 113, 0.5); /* Teks hijau lebih samar */
 }
 
 /* Animasi mengetik maju mundur dengan efek smooth */
 .moving-text {
     font-size: 1.5em; /* Perkecil ukuran font */
-    color: cyan;
+    color: #3cb371; /* Hijau */
     animation: typing 8s steps(30) 1s infinite, reverseTyping 9s steps(30) 1s infinite, blink 0.75s step-end infinite;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid cyan;
+    border-right: 3px solid #3cb371; /* Border hijau */
     margin-top: 10px; /* Jarak atas agar tidak terlalu dekat */
     display: inline-block;
     width: 100%; /* Pastikan lebar penuh */
